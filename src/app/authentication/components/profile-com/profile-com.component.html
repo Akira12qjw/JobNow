@@ -1,0 +1,130 @@
+<app-auth-contect>
+  <section class="section">
+    <div class="section-header">
+      <h1>Thông tin công ty</h1>
+    </div>
+    <div class="section-body"></div>
+    <div class="row mt-sm-4">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="card author-box card-primary">
+          <form class="needs-validation">
+            <div class="card-header">
+              <h4>Chỉnh sửa thông tin</h4>
+              <div class="card-header-action"></div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6 col-md-6 col-lg-6">
+                  <div class="row">
+                    <div class="form-group col-md-12 col-12">
+                      <label>ID công ty</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="idCom"
+                        [(ngModel)]="idCom"
+                        disabled
+                      />
+                      <div class="invalid-feedback">Vui lòng điền ID</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-12 col-12">
+                      <label>Tên công ty</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="nameCompany"
+                        [(ngModel)]="nameCompany"
+                      />
+                      <div class="invalid-feedback">
+                        Vui lòng điền tên công ty
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-12 col-12">
+                      <label>Tài khoản</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="userName"
+                        disabled
+                        [(ngModel)]="userName"
+                      />
+                      <div class="invalid-feedback">
+                        Vui lòng điền tài khoản
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                  <div class="row">
+                    <div class="form-group col-md-12 col-12">
+                      <label>Tổng tiền</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="moneyInAccount"
+                        [(ngModel)]="moneyInAccount"
+                        disabled
+                      />
+                      <div class="invalid-feedback">Vui lòng điền số tiền</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-12 col-12">
+                      <label>Địa chỉ</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="addressCompany"
+                        [(ngModel)]="addressCompany"
+                      />
+                      <div class="invalid-feedback">Vui lòng điền địa chỉ</div>
+                    </div>
+                    <div class="form-group col-md-12 cok-12">
+                      <div class="form-group">
+                        <img
+                          *ngIf="image == null"
+                          class="img-fluid img-thumbnail"
+                          src="assets/img/avatar/avatar-1.png"
+                          alt=""
+                        />
+                        <img
+                          *ngIf="image != null"
+                          class="img-fluid img-thumbnail"
+                          src="http://localhost:8080/api/v1/downloadFile/{{
+                            image
+                          }}"
+                          alt=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input type="file" (change)="onConvertImage($event)" />
+                      </div>
+                      <button
+                        type="button"
+                        claas="btn btn-success"
+                        (click)="updateAvatar()"
+                      >
+                        Cập nhật hình ảnh
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="form-group">
+                <button class="btn btn-primary" (click)="updateCom()">
+                  Lưu thay đổi
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</app-auth-contect>
